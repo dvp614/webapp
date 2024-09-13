@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Context>
+
+    <!-- 이 태그의 속성을 이용해서, 데이터소스 즉, 커넥션 풀이란 지원을 설정합니다. -->
+    <!-- 
+        아래설정대로 WAS가 구동될 때 자원객체를 만들고,
+        만들어진 자원객체를 JNDI 나무의 열매로서 대롱대롱 매달아 놓음
+        WAS안에서 사용되는 그 어떤 클래스에서든, 아래의 자원객체가 필요할때
+        JNDI 서비스가 제공하는 타입과 메소드를 이용해서, "이름"으로 열매를 찾아서
+        사용할 수 있도록 하기 위함 
+    -->
+    <Resource 
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="jdbc:oracle:thin:@xepdb1?TNS_ADMIN=C:/u01"
+        username="scott"
+        password="oracle"
+
+        name="jdbc/Oracle21c"
+        auth="Container"
+        type="javax.sql.DataSource"
+
+        maxTotal="8"
+        maxIdle="2"
+    />
+
+</Context>
